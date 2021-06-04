@@ -3,7 +3,7 @@ sample_table: demo_sample_table.csv
 sample_modifiers:
   append:
     Index: RG1
-    pipeline_interfaces: bwa_cwl_interface.yaml
+    pipeline_interfaces: pipeline_interface.yaml
   duplicate:
     read1: InputFile1
     read2: InputFile2
@@ -21,3 +21,6 @@ sample_modifiers:
       
 looper:
   output_dir: pipeline_results
+
+refgenie_asset_tags:
+  bowtie2_index: test
