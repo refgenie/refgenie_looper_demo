@@ -72,9 +72,7 @@ command_template: >
   --sample-name {sample.sample_name}
  ```
 
-Use `{pipeline.var_templates.bowtie2_index}` to get the populated refgenie path in your command template.# refgenie_looper_demo
-
-The bad part about this method is that controlling the tags happens at the pipeline interface, and also you have to explicitly specify every asset you need to use in the command template.
+Use `{pipeline.var_templates.bowtie2_index}` to get the populated refgenie path in your command template. The bad part about this method is that controlling the tags happens at the pipeline interface, instead of in the user-controlled project config file. Also,  you have to explicitly specify every asset you need to use in the command template; in the earlier approach, all assets are immediately available without requiring that.
 
 # 3. Use sample attributes
 
