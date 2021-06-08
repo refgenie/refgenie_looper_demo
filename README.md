@@ -7,7 +7,7 @@ This repo shows an example of how to use looper to populate refgenie registry pa
 
 Looper handles the part about getting the specific paths to specific assets for a provided genome, and then passing those along to the pipeline. The magic happens in the `pipeline_interface.yaml` file
 
-# Running the demo
+## Running the demo
 
 This repo contains a [simple pipeline](pipeline.py) that just prints its CLI arguments, a [pipeline interface](pipeline_interface.yaml) that shows how to use the demo, and an example PEP ([pep_bio.yaml](pep_bio.yaml) with [demo_sample_table](demo_sample_table.csv)). To run it, just use:
 
@@ -53,7 +53,7 @@ Jobs submitted: 2
 
 This demonstrates how just using a few simple variables like `{refgenie.bowtie2_index}` in the pipeline interface, you can easily pull static paths to files from refgenie, modulated based on the `genome` sample attribute.
 
-# How to use the plugin on your own
+## How to use the plugin on your own
 
 The looper system is super flexible and there are 3 different approaches you can use to get this done, depending on your needs.
 
@@ -62,7 +62,7 @@ The looper system is super flexible and there are 3 different approaches you can
 3. You can specify refgenie registry paths as sample attributes, which will be populated by the plugin, and then just use the sample attributes in your command template.
 
 
-# Enable the plugin
+## Enable the plugin
 
 For any of the 3 options, the first thing you have to do is enable the plugin in the looper `pipeline_interface.yaml`, which you do by adding this:
 
@@ -76,9 +76,9 @@ pre_submit:
 
 This adds the refgenie looper plugin, which ships with refgenie, as a `pre_submit` hook. The `refgenie_config` setting passes the refgenie config file to the plugin.
 
-# Use the plugin
+## Use the plugin
 
-## Option 1. Use refgenie in the command template (recommended)
+### Option 1. Use refgenie in the command template (recommended)
 
 All you have to do is refer to assets with `{refgenie.asset_name.seek_key}` in your command template!
 
@@ -100,7 +100,7 @@ refgenie_asset_tags:
 
 This is optional, refgenie will use the default tags if you don't provide them.
 
-# 2. Use var_templates (more work, but more explicit)
+### Option 2. Use var_templates (more work, but more explicit)
 
 First, set up variables templates (`var_templates`) for any assets you need by adding this to the pipeline interface:
 
@@ -122,7 +122,7 @@ command_template: >
 
 Use `{pipeline.var_templates.bowtie2_index}` to get the populated refgenie path in your command template. The bad part about this method is that controlling the tags happens at the pipeline interface, instead of in the user-controlled project config file. Also,  you have to explicitly specify every asset you need to use in the command template; in the earlier approach, all assets are immediately available without requiring that.
 
-# 3. Use sample attributes
+### Option 3. Use sample attributes
 
 Finally, you could just stick a refgenie asset registry path as a sample attribute. You could just add it as a value in a column in your sample table, or do something like this using a derived column:
 
