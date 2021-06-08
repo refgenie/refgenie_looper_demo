@@ -55,11 +55,7 @@ This demonstrates how just using a few simple variables like `{refgenie.bowtie2_
 
 ## How to use the plugin on your own
 
-The looper system is super flexible and there are 3 different approaches you can use to get this done, depending on your needs.
-
-1. This plugin provides a new `{refgenie}` namespace, which you can use directly in your command template.
-2. You can specify refgenie registry paths to assets in `var_templates`, which will be populated by the plugin, and then can be used in your command template.
-3. You can specify refgenie registry paths as sample attributes, which will be populated by the plugin, and then just use the sample attributes in your command template.
+The looper system is super flexible and there are 3 different approaches you can use to get this done, depending on your needs. These 3 options will be explained below: 1. This plugin provides a new `{refgenie}` namespace, which you can use directly in your command template; 2. You can specify refgenie registry paths to assets in `var_templates`, which will be populated by the plugin, and then can be used in your command template. 3. You can specify refgenie registry paths as sample attributes, which will be populated by the plugin, and then just use the sample attributes in your command template. Here are the details:
 
 
 ## Enable the plugin
