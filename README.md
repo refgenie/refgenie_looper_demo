@@ -16,7 +16,7 @@ The looper system is super flexible and there are 3 different approaches you can
 
 # Enable the plugin
 
-For any of the 3 options, the first thing you have to do is 
+For any of the 3 options, the first thing you have to do is enable the plugin in the looper `pipeline_interface.yaml`, which you do by adding this:
 
 ```
 var_templates:
