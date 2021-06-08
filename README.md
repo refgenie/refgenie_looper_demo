@@ -54,7 +54,7 @@ This is optional, refgenie will use the default tags if you don't provide them.
 
 # 2. Use var_templates (more work, but more explicit)
 
-First, set up variables templates (`var_templates`) for any assets you need:
+First, set up variables templates (`var_templates`) for any assets you need by adding this to the pipeline interface:
 
 ```
 var_templates:
