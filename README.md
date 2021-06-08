@@ -26,7 +26,7 @@ pre_submit:
   - refgenconf.looper_refgenie_populate
  ```
 
-This adds the refgenie looper plugin, which ships with refgenie, as a `pre_submit` hook. The `refgenie_config` is just the way you pass the refgenie file to the plugin.
+This adds the refgenie looper plugin, which ships with refgenie, as a `pre_submit` hook. The `refgenie_config` setting passes the refgenie config file to the plugin.
 
 # Use the plugin
 
