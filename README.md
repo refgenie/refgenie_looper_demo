@@ -1,4 +1,4 @@
-# refgenie looper demo
+# Refgenie looper plugin demo
 
 This repo shows an example of how to use looper to populate refgenie registry paths automatically. The advantages are:
 
@@ -6,6 +6,54 @@ This repo shows an example of how to use looper to populate refgenie registry pa
 2. Users don't have to do anything other than supply a genome
 
 Looper handles the part about getting the specific paths to specific assets for a provided genome, and then passing those along to the pipeline. The magic happens in the `pipeline_interface.yaml` file
+
+# Running the demo
+
+This repo contains a simple pipeline (`pipeline.py`) that just prints its CLI arguments, a [pipeline interface](pipeline_interface.yaml) that shows how to use the demo, and an example PEP ([pep_bio.yaml](pep_bio.yaml) with [demo_sample_table](demo_sample_table.csv). To run it, just use:
+
+```
+looper run pep_bio.yaml
+```
+
+You can see the refgenie-populated paths print to screen and also populate the sample yaml files. Output looks something like this:
+
+```
+Looper version: 1.3.1-dev
+Command: run
+## [1 of 2] sample: sample1; pipeline: demo
+Calling pre-submit function: refgenconf.looper_refgenie_populate
+Can't find tag 'test' for asset 'bowtie2_index'. Using default
+Calling pre-submit function: looper.write_sample_yaml
+Writing script to /home/nsheff/code/incubator/refgenie_looper_demo/pipeline_results/submission/demo_sample1.sub
+Job script (n=1; 0.00Gb): pipeline_results/submission/demo_sample1.sub
+Compute node: zither
+Start time: 2021-06-08 12:26:47
+Sample name: /home/nsheff/code/refgenie_sandbox/alias/t7/bwa_index/default/t7.fa
+Fasta file: /home/nsheff/code/refgenie_sandbox/alias/t7/fasta/default/t7.fa
+Index file: /home/nsheff/code/refgenie_sandbox/alias/t7/bowtie2_index/default/.
+Annotation file: /home/nsheff/code/refgenie_sandbox/alias/t7/bwa_index/default/t7.fa
+## [2 of 2] sample: sample2; pipeline: demo
+Calling pre-submit function: refgenconf.looper_refgenie_populate
+Can't find tag 'test' for asset 'bowtie2_index'. Using default
+Calling pre-submit function: looper.write_sample_yaml
+Writing script to /home/nsheff/code/incubator/refgenie_looper_demo/pipeline_results/submission/demo_sample2.sub
+Job script (n=1; 0.00Gb): pipeline_results/submission/demo_sample2.sub
+Compute node: zither
+Start time: 2021-06-08 12:26:47
+Sample name: /home/nsheff/code/refgenie_sandbox/alias/t7/bwa_index/default/t7.fa
+Fasta file: /home/nsheff/code/refgenie_sandbox/alias/t7/fasta/default/t7.fa
+Index file: /home/nsheff/code/refgenie_sandbox/alias/t7/bowtie2_index/default/.
+Annotation file: /home/nsheff/code/refgenie_sandbox/alias/t7/bwa_index/default/t7.fa
+
+Looper finished
+Samples valid for job generation: 2 of 2
+Commands submitted: 2 of 2
+Jobs submitted: 2
+```
+
+This demonstrates how just using a few simple variables like `{refgenie.bowtie2_index}` in the pipeline interface, you can easily pull static paths to files from refgenie, modulated based on the `genome` sample attribute.
+
+# How to use the plugin on your own
 
 The looper system is super flexible and there are 3 different approaches you can use to get this done, depending on your needs.
 
