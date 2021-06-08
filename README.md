@@ -9,7 +9,7 @@ Looper handles the part about getting the specific paths to specific assets for 
 
 # Running the demo
 
-This repo contains a simple pipeline (`pipeline.py`) that just prints its CLI arguments, a [pipeline interface](pipeline_interface.yaml) that shows how to use the demo, and an example PEP ([pep_bio.yaml](pep_bio.yaml) with [demo_sample_table](demo_sample_table.csv). To run it, just use:
+This repo contains a [simple pipeline](pipeline.py) that just prints its CLI arguments, a [pipeline interface](pipeline_interface.yaml) that shows how to use the demo, and an example PEP ([pep_bio.yaml](pep_bio.yaml) with [demo_sample_table](demo_sample_table.csv). To run it, just use:
 
 ```
 looper run pep_bio.yaml
