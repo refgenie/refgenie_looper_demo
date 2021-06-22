@@ -28,6 +28,12 @@ def parse_arguments():
                         dest="anno_name", type=str,
                         help="Path to reference annotation file (BED format) for calculating FRiF")
 
+    parser.add_argument("--custom-config", default=None,
+                        dest="custom_config", type=str,
+                        help="Path to custom configuration file")
+
+
+
     args = parser.parse_args()
     return args
 
@@ -45,6 +51,7 @@ def main():
     print(f'Fasta file: {args.fasta_file}')
     print(f'Index file: {args.index_file}')
     print(f'Annotation file: {args.anno_name}')
+    print(f'Custom config file: {args.custom_config}')
 
 if __name__ == '__main__':
     pm = None

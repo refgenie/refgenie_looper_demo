@@ -18,9 +18,24 @@ sample_modifiers:
         organism: ["human", "Homo sapiens", "Human", "Homo_sapiens"]
       then: 
         genome: t7
-      
+        prealignments: [t7, t7, t7]
+
+refgenie:
+  tag_overrides:
+    t7:
+      bowtie2_index: "alternative_tag"
+  path_overrides:
+    - registry_path: "hg19/bowtie2_index"
+      value: "test.xyz"
+
 looper:
   output_dir: pipeline_results
-
+  compute:
+    - "cores=5"
+    - "mem=1500"
 refgenie_asset_tags:
   bowtie2_index: test
+
+prealignments:
+  - t7/bowtie2_index.dir:default
+  - human_alu
