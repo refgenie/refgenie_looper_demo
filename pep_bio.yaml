@@ -33,8 +33,6 @@ looper:
   compute:
     - "cores=5"
     - "mem=1500"
-refgenie_asset_tags:
-  bowtie2_index: test
 
 prealignments:
   - t7/bowtie2_index.dir:default
