@@ -1,0 +1,14 @@
+pipeline_name: demo
+pipeline_type: sample
+# input_schema: bwa_input_schema.yaml
+pre_submit:
+  python_functions:
+  - refgenconf.looper_refgenie_populate
+  - looper.write_sample_yaml
+  - looper.write_custom_template
+command_template: >
+  echo {project.genome}
+var_templates:
+  refgenie_config: "$REFGENIE"
+  custom_template: in.jinja
+  custom_template_output: "{looper.output_dir}/submission/{sample.sample_name}_custom_config.yaml"
